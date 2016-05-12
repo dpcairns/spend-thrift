@@ -19,7 +19,7 @@ spendthrift.config(function($stateProvider, $urlRouterProvider) {
             $http.post(
 'https://inventory.data.gov/api/action/datastore_search?resource_id=996f733b-7f9c-4011-a1a0-9768f67c1623&filters={"FiscalYear":"2014","State":"' + stateInput + '","City":"' + cityInput + '" }'
 ).then(function successCallback(response){
-  if(!response.data.result.records[0]) {$scope.APIError = true}
+  if(!response.data.result.records[0]) {$scope.APIError = true; $scope.citySuccess = false}
   else{
             $scope.APIError = false
             $scope.citySuccess = true
