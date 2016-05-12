@@ -1,4 +1,4 @@
-var spendthrift = angular.module('spendthrift', ['ui.router', 'ngAnimate']);
+var spendthrift = angular.module('spendthrift', ['ui.router', 'ngAnimate', 'angular-loading-bar']);
 
 spendthrift.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
