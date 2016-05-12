@@ -1,0 +1,39 @@
+  Pick a city (eg: Cincinatti):
+
+<input style="color:black" type="text" name="cityInput2" ng-model="cityInput"><br/>
+And a state (eg: OH):
+<input style="color:black" type="text" name="stateInput2" ng-model="stateInput"/>
+<br/>
+<div class="btn btn-danger" ng-click="findCity(cityInput, stateInput)">find it</div>
+
+<div ng-show="citySuccess">
+<h3>In {{city}}, {{state}} you'll get ${{meals}} a day to eat.</h3>
+<h4>
+As for lodging, here's what you get, depending on the month of your trip:
+<div class="row">
+  <div class="col-md-6">
+    Jan <br/>
+    Feb <br/>
+    Mar <br/>
+    Apr <br/>
+    May <br/>
+    Jun <br/>
+    July <br/>
+    August <br/>
+    September <br/>
+    October <br/>
+    November <br/>
+    December <br/>
+  </div>
+<div class="col-md-6">
+    <div ng-repeat="price in priceByMonth track by $index">
+      ${{price}}
+    </div>
+</div>
+</h4>
+</div>
+</div>
+<div ng-show="APIError">
+  <h2>okay so that didn't work. why not try something else?</h2>
+</div>
+</div>
