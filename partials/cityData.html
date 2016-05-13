@@ -7,34 +7,33 @@ And a two-letter state abbreviation:
 <div class="btn btn-danger" ng-click="findCity(cityInput, stateInput)">find it</div>
 
 <div ng-show="citySuccess">
-<h3>In {{city}}, {{state}} you'll get ${{meals}} a day to eat.</h3>
+<h3>In {{city}}, {{state}} she'll get <strong>${{meals}}</strong> a day to eat.</h3>
 <h4>
-As for lodging, here's what you get, depending on the month of your trip:
+As for lodging, here's what she can expect, depending on the month of the trip:
 <div class="row">
   <div class="col-md-6">
-    Jan <br/>
-    Feb <br/>
-    Mar <br/>
-    Apr <br/>
-    May <br/>
-    Jun <br/>
-    July <br/>
-    August <br/>
-    September <br/>
-    October <br/>
-    November <br/>
-    December <br/>
+    Jan <hr/>
+    Feb <hr/>
+    Mar <hr/>
+    Apr <hr/>
+    May <hr/>
+    Jun <hr/>
+    July <hr/>
+    August <hr/>
+    September <hr/>
+    October <hr/>
+    November <hr/>
+    December <hr/>
   </div>
 <div class="col-md-6">
     <div ng-repeat="price in priceByMonth track by $index">
-      ${{price}}
+      ${{price}} <hr/>
     </div>
 </div>
 </h4>
 </div>
 </div>
 <div ng-show="APIError">
-  <h2>okay so that didn't work. why not try something else? It could be that data is unavailable for that city.
-    For example, Boston and Maryland have no data, so don't beat yourself up over this.</h2>
+  <h3><em>Okay so that didn't work. Possibly you misspelled something, or it could be that data is unavailable for that city. But really, somtimes this API is weird. For example, if you want to know about Minneapolis, enter </em> Minneapolis / St. Paul <em> as the city name, with the slash and everything.</em></h3>
 </div>
 </div>
