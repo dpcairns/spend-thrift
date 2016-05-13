@@ -102,8 +102,8 @@ spendthrift.config(function($stateProvider, $urlRouterProvider) {
         templateUrl: '/partials/cityData.html',
         controller: function CityDataCtrl($scope, $http) {
           $scope.findCity = function(cityInput, stateInput){
-            $http.post(
-'https://inventory.data.gov/api/action/datastore_search?resource_id=996f733b-7f9c-4011-a1a0-9768f67c1623&filters={"State":"' + stateInput + '","City":"' + cityInput + '" }'
+            $http.jsonp(
+'https://inventory.data.gov/api/action/datastore_search?&callback=JSON_CALLBACK&resource_id=996f733b-7f9c-4011-a1a0-9768f67c1623&filters={"State":"' + stateInput + '","City":"' + cityInput + '" }'
 ).then(function successCallback(response){
   console.warn($scope)
   if(!response.data.result.records[0]) {$scope.APIError = true; $scope.citySuccess = false}

@@ -1,0 +1,45 @@
+h4
+  span (style="float:right")
+  em All fields are cade sensitive
+br Pick a city:
+
+input (style="color:black; width:300px" type="text" name="cityInput2" ng-model="cityInput" placeholder="like Portland, Chicago, or Miami"><br/>
+And a two-letter state abbreviation:
+<input style="color:black" type="text" name="stateInput2" ng-model="stateInput" placeholder="like OR, IL, or FL"/>
+<br/>
+.btn.btn-danger
+ ng-click="findCity(cityInput, stateInput)">find it</div>
+
+<hr/>
+
+<div ng-show="citySuccess">
+<h3>In {{city}}, {{state}} she'll get <strong>${{meals}}</strong> a day to eat.</h3>
+<h4>
+As for lodging, here's what she can expect, depending on the month of the trip:
+<div class="row">
+  <div class="col-md-6">
+    Jan <hr/>
+    Feb <hr/>
+    Mar <hr/>
+    Apr <hr/>
+    May <hr/>
+    Jun <hr/>
+    July <hr/>
+    August <hr/>
+    September <hr/>
+    October <hr/>
+    November <hr/>
+    December <hr/>
+  </div>
+<div class="col-md-6">
+    <div ng-repeat="price in priceByMonth track by $index">
+      ${{price}} <hr/>
+    </div>
+</div>
+</h4>
+</div>
+</div>
+<div ng-show="APIError">
+  <h3><em>Okay so that didn't work. Possibly you misspelled something, or it could be that data is unavailable for that city. But really, somtimes this API is weird. For example, if you want to know about Minneapolis, enter </em> Minneapolis / St. Paul <em> as the city name, with the slash and everything.</em></h3>
+</div>
+</div>
