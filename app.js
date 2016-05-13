@@ -33,52 +33,52 @@ spendthrift.config(function($stateProvider, $urlRouterProvider) {
 
             if ($scope.twoCities.length===2){
                         if($scope.twoCities[0].Meals > $scope.twoCities[1].Meals){
-                          $scope.city1 = $scope.twoCities[0]
-                          $scope.city2 = $scope.twoCities[1]
+                          $scope.higherMealRateCity = $scope.twoCities[0]
+                          $scope.lowerMealRateCity = $scope.twoCities[1]
                         }
                         else{
-                          $scope.city1 = $scope.twoCities[1]
-                          $scope.city2 = $scope.twoCities[0]
+                          $scope.higherMealRateCity = $scope.twoCities[1]
+                          $scope.lowerMealRateCity = $scope.twoCities[0]
                         }
-          var allMonthsCity1 = [$scope.city1.Jan, $scope.city1.Feb,
-                      $scope.city1.Mar, $scope.city1.Apr,
-                      $scope.city1.May, $scope.city1.Jun,
-                      $scope.city1.Jul, $scope.city1.Aug,
-                      $scope.city1.Sep, $scope.city1.Oct,
-                      $scope.city1.Nov, $scope.city1.Dec]
+          var allMonthshigherMealRateCity = [$scope.higherMealRateCity.Jan, $scope.higherMealRateCity.Feb,
+                      $scope.higherMealRateCity.Mar, $scope.higherMealRateCity.Apr,
+                      $scope.higherMealRateCity.May, $scope.higherMealRateCity.Jun,
+                      $scope.higherMealRateCity.Jul, $scope.higherMealRateCity.Aug,
+                      $scope.higherMealRateCity.Sep, $scope.higherMealRateCity.Oct,
+                      $scope.higherMealRateCity.Nov, $scope.higherMealRateCity.Dec]
 
 
-                var city1Sum = allMonthsCity1.reduce(function(last, thisOne){
+                var higherMealRateCitySum = allMonthshigherMealRateCity.reduce(function(last, thisOne){
                     return parseInt(last) + parseInt(thisOne)
                   })
 
-                $scope.city1LodgingAverage = (city1Sum / 12)
+                var higherMealRateCityLodgingAverage = (higherMealRateCitySum / 12)
 
 
-            var allMonthsCity2 = [$scope.city2.Jan, $scope.city2.Feb,
-                  $scope.city2.Mar, $scope.city2.Apr,
-                  $scope.city2.May, $scope.city2.Jun,
-                  $scope.city2.Jul, $scope.city2.Aug,
-                  $scope.city2.Sep, $scope.city2.Oct,
-                  $scope.city2.Nov, $scope.city2.Dec]
+            var allMonthslowerMealRateCity = [$scope.lowerMealRateCity.Jan, $scope.lowerMealRateCity.Feb,
+                  $scope.lowerMealRateCity.Mar, $scope.lowerMealRateCity.Apr,
+                  $scope.lowerMealRateCity.May, $scope.lowerMealRateCity.Jun,
+                  $scope.lowerMealRateCity.Jul, $scope.lowerMealRateCity.Aug,
+                  $scope.lowerMealRateCity.Sep, $scope.lowerMealRateCity.Oct,
+                  $scope.lowerMealRateCity.Nov, $scope.lowerMealRateCity.Dec]
 
-            var city2Sum = allMonthsCity2.reduce(function(last, thisOne){
+            var lowerMealRateCitySum = allMonthslowerMealRateCity.reduce(function(last, thisOne){
                 return parseInt(last) + parseInt(thisOne)
               })
-              $scope.city2LodgingAverage = (city2Sum / 12)
+              var lowerMealRateCityLodgingAverage = (lowerMealRateCitySum / 12)
 
-              if($scope.city2LodgingAverage > $scope.city1LodgingAverage){
-                $scope.city1Lodging = $scope.twoCities[1]
-                $scope.city2Lodging = $scope.twoCities[0]
-                $scope.higherLodgingRate = $scope.city2LodgingAverage
-                $scope.lowerLodgingRate = $scope.city1LodgingAverage
+              if(lowerMealRateCityLodgingAverage > higherMealRateCityLodgingAverage){
+                $scope.higherLodgingCity = $scope.lowerMealRateCity
+                $scope.lowerLodgingCity = $scope.higherMealRateCity
+                $scope.higherLodgingRate = $scope.lowerMealRateCityLodgingAverage
+                $scope.lowerLodgingRate = $scope.higherMealRateCityLodgingAverage
 
               }
               else{
-                $scope.city1Lodging = $scope.twoCities[0]
-                $scope.city2Lodging = $scope.twoCities[1]
-                $scope.higherLodgingRate = $scope.city1LodgingAverage
-                $scope.lowerLodgingRate = $scope.city2LodgingAverage
+                $scope.higherLodgingCity = $scope.higherMealRateCity
+                $scope.lowerLodgingCity = $scope.lowerMealRateCity
+                $scope.higherLodgingRate = higherMealRateCityLodgingAverage
+                $scope.lowerLodgingRate = lowerMealRateCityLodgingAverage
               }
           }
 
