@@ -1,28 +1,25 @@
-<div class="row">
+.row
+  .bg-danger.compare-box(ng-show="twoCities.length>1 && twoCities[0].Meals!=twoCities[1].Meals")
+  | If she's thrifty and cooks at the hotel, maybe she should go to
+  strong {{higherMealRateCity.City}}, where she'll get to pocket an extra
+  strong${{higherMealRateCity.Meals - lowerMealRateCity.Meals}} for meals than if she went to {{lowerMealRateCity.City}}.
 
-    <div class="bg-danger compare-box" ng-show="twoCities.length>1 && twoCities[0].Meals!=twoCities[1].Meals">
-      If she's thrifty and cooks at the hotel, maybe she should go to <strong>{{higherMealRateCity.City}}</strong>, where she'll get to pocket an extra <strong>${{higherMealRateCity.Meals - lowerMealRateCity.Meals}}</strong> for meals than if she went to {{lowerMealRateCity.City}}.
-    </div>
-
-    <div class="bg-danger compare-box" ng-show="twoCities.length>1 && twoCities[0].Meals===twoCities[1].Meals">
-      {{higherMealRateCity.City}} and {{lowerMealRateCity.City}} will get her the same food allowance, so it's <strong>kind of a toss up there.</strong>
-    </div>
-    <br/>
-    <div class="bg-danger compare-box" ng-show="twoCities.length>1 && higherLodgingRate!=lowerLodgingRate">
-      And if she's staying with a friend, maybe she should just go to <strong>{{higherLodgingCity.City}}</strong>, where on average she'll get to pocket an extra <strong>${{higherLodgingRate - lowerLodgingRate | number:2}}</strong> for lodging than if she went to {{lowerLodgingCity.City}}.
-    </div>
-    <div class="bg-danger compare-box" ng-show="twoCities.length>1 && higherLodgingRate===lowerLodgingRate">
-      And generally speaking, {{higherLodgingCity.City}} and {{lowerLodgingCity.City}} will get her the same allowance for lodging, so it's <strong>kind of a toss up there.</strong>
-    </div>
-        <br/>
-<div class="col-md-6">
-  <div class="bg-info city-box">
-    <city-data which-one="left"></city-data>
-  </div>
-</div>
-<div class="col-md-6">
-  <div class="bg-warning city-box">
-    <city-data which-one="right"></city-data>
-  </div>
-</div>
-</div>
+  .bg-danger.compare-box(ng-show="twoCities.length>1 && twoCities[0].Meals===twoCities[1].Meals")
+    |{{higherMealRateCity.City}} and {{lowerMealRateCity.City}} will get her the same food allowance,
+    |so it's <strong>kind of a toss up there.</strong>
+  br
+  .bg-danger.compare-box(ng-show="twoCities.length>1 && higherLodgingRate!=lowerLodgingRate")
+      |And if she's staying with a friend, maybe she should just go to
+      strong {{higherLodgingCity.City}}, where on average she'll get to pocket an extra
+      strong ${{higherLodgingRate - lowerLodgingRate | number:2}} for lodging than if she went to {{lowerLodgingCity.City}}.
+  .bg-danger.compare-box(ng-show="twoCities.length>1 && higherLodgingRate===lowerLodgingRate")
+      | And generally speaking, {{higherLodgingCity.City}} and {{lowerLodgingCity.City}} will get her
+      | the same allowance for lodging, so it's
+      strong kind of a toss up there.
+  br
+.col-md-6
+  .bg-info.city-box
+  city-data(which-one="left")
+.col-md-6
+  .bg-warning.city-box
+  city-data(which-one="right")
